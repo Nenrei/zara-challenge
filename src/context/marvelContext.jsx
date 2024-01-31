@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from 'react';
 
 const MarvelContext = createContext({});
 
@@ -20,7 +20,7 @@ const MarvelContextProvider = ({ children }) => {
 const useMarvelContext = () => {
     const context = React.useContext(MarvelContext);
     if (context === undefined) {
-        throw new Error("useMarvelContext must be used within a MarvelContextProvider");
+        throw new Error('useMarvelContext must be used within a MarvelContextProvider');
     }
     return context;
 };

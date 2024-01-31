@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { test } from "../../services/marvelServices";
-import CharacterCard from "../../components/characterCard/CharacterCard";
-import "./CharacterListView.css";
+import React, { useEffect, useState } from 'react';
+import { test } from '../../services/marvelServices';
+import CharacterCard from '../../components/characterCard/CharacterCard';
+import './CharacterListView.css';
 
 const CharacterListView = () => {
     const [characters, setCharacters] = useState([]);
@@ -18,7 +18,7 @@ const CharacterListView = () => {
     }, []);
 
     return (
-        <section className={"character-list-view"}>
+        <section className={'character-list-view'}>
             {characters.map((el) => (
                 <CharacterCard key={el.id} characterData={el} />
             ))}

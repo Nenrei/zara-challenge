@@ -5,16 +5,16 @@
 }
 
 .icon--heart {
-    mask-image: url("../assets/icons/heart.svg");
+    mask-image: url('../assets/icons/heart.svg');
     background-color: var(--marver-red);
 }
 
 .icon--heart-line {
-    mask-image: url("../assets/icons/heart-line.svg");
-    background-color: #fff;
+    mask-image: url('../assets/icons/heart-line.svg');
+    background-color: var(--color-clear);
 }
 
 .icon--heart-line-bold {
-    mask-image: url("../assets/icons/heart-line-bold.svg");
-    background-color: #fff;
+    mask-image: url('../assets/icons/heart-line-bold.svg');
+    background-color: var(--color-clear);
 }

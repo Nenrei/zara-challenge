@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
 export let marvelAxios = axios.create({
-    baseURL: "https://gateway.marvel.com/v1/public",
+    baseURL: 'https://gateway.marvel.com/v1/public',
     timeout: 5000,
 });
 
 const config = {
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' },
 };
 
-const apikey = "1a19eba14d8a4d15f69f1219622b13bf";
+const apikey = '1a19eba14d8a4d15f69f1219622b13bf';
 
 export const test = () => {
     return marvelAxios
