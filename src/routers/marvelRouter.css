@@ -1,0 +1,9 @@
+.grid-container {
+    display: grid;
+    grid-template-rows: 84px 1fr;
+    height: 100vh;
+}
+
+.main {
+    padding: 20px;
+}

@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
                     test: /.(css|scss|sass)$/,
                     use: ["style-loader", "css-loader"],
                 },
-                {
+                /*{
                     test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
                     use: [
                         {
@@ -28,8 +28,8 @@ module.exports = (env, argv) => {
                             },
                         },
                     ],
-                },
-                {
+                },*/
+                /* {
                     test: /\.(png|jpe?g|gif)$/i,
                     use: [
                         {
@@ -52,6 +52,14 @@ module.exports = (env, argv) => {
                             },
                         },
                     ],
+                },*/
+                {
+                    test: /\.(png|jpe?g|gif|mkv)$/i,
+                    type: "asset/inline",
+                },
+                {
+                    test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
+                    type: "asset/inline",
                 },
             ],
         },

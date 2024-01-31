@@ -1,0 +1,12 @@
+.corner-triangle::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 12px 12px;
+    border-color: transparent transparent white transparent;
+    transform: rotate(0deg);
+    bottom: 0;
+    right: 0;
+}

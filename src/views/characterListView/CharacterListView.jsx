@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { test } from "../../services/marvelServices";
+import CharacterCard from "../../components/characterCard/CharacterCard";
+import "./CharacterListView.css";
 
 const CharacterListView = () => {
     const [characters, setCharacters] = useState([]);
@@ -16,24 +18,9 @@ const CharacterListView = () => {
     }, []);
 
     return (
-        <section
-            className={"character-list-view"}
-            style={{ display: "flex", flexWrap: "wrap", flexDirection: "row", gap: "10px" }}
-        >
+        <section className={"character-list-view"}>
             {characters.map((el) => (
-                <div
-                    key={el.id}
-                    style={{ width: "150px", height: "150px", border: "1px solid black" }}
-                >
-                    <div>{el.name}</div>
-                    <div>
-                        <img
-                            style={{ width: "100px", height: "100px" }}
-                            src={`${el.thumbnail.path}.${el.thumbnail.extension}`}
-                            alt={el.name}
-                        />
-                    </div>
-                </div>
+                <CharacterCard key={el.id} characterData={el} />
             ))}
         </section>
     );

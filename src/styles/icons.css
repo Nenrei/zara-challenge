@@ -1,0 +1,20 @@
+.icon {
+    mask-size: contain !important;
+    mask-repeat: no-repeat !important;
+    mask-position: 50% 50% !important;
+}
+
+.icon--heart {
+    mask-image: url("../assets/icons/heart.svg");
+    background-color: var(--marver-red);
+}
+
+.icon--heart-line {
+    mask-image: url("../assets/icons/heart-line.svg");
+    background-color: #fff;
+}
+
+.icon--heart-line-bold {
+    mask-image: url("../assets/icons/heart-line-bold.svg");
+    background-color: #fff;
+}

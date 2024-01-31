@@ -1,0 +1,60 @@
+.char-card {
+    width: 173px;
+    height: 246px;
+}
+
+.char-card__thumbnail {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.char-card__thumbnail img {
+    max-height: 100%;
+}
+
+.char-card__splitter {
+    width: 100%;
+    height: 5px;
+    background-color: var(--marver-red);
+}
+
+.char-card__name {
+    width: 100%;
+    height: 56px;
+    color: white;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    padding: 16px 16px 24px 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(var(--marver-red), var(--marver-red) 50%, #000 50%, #000) 100% 100%;
+    background-size: 100% 200%;
+    transition: background 0.3s;
+}
+
+.char-card__name__fav {
+    min-width: 12px;
+    height: 12px;
+
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+}
+
+.char-card:hover .char-card__name {
+    background-position: 0 0;
+}
+
+.char-card:hover .char-card__name__fav.icon--heart {
+    background-color: #fff;
+}

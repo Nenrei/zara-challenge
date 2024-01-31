@@ -1,0 +1,7 @@
+.character-list-view {
+    padding: 48px 0;
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    justify-content: center;
+}
