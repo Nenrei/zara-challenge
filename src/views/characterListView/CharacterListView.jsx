@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { test } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
 import './CharacterListView.css';
+import { useMarvelContext } from '../../context/marvelContext';
 
 const CharacterListView = () => {
-    const [characters, setCharacters] = useState([]);
+    const {
+        states: {
+            storage: { characters, setCharacters },
+        },
+    } = useMarvelContext();
 
     useEffect(() => {
         test()
             .then((result) => {
-                console.log(result);
                 setCharacters(result);
             })
             .catch((error) => {

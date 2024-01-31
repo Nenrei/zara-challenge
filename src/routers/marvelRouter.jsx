@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CharacterListView from '../views/characterListView/CharacterListView';
 import './marvelRouter.css';
 import Header from '../components/header/Header';
+import CharacterDetailView from '../views/characterDetail/CharacterDetailView';
 
 const MarvelRouter = () => {
     return (
@@ -11,7 +12,8 @@ const MarvelRouter = () => {
                 <Header />
                 <main className="main">
                     <Routes>
-                        <Route path="/" element={<CharacterListView />} />
+                        <Route path="*" element={<CharacterListView />} />
+                        <Route path="/character/:characterId" element={<CharacterDetailView />} />
                     </Routes>
                 </main>
             </div>
