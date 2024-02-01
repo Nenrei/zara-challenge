@@ -18,3 +18,8 @@
     mask-image: url('../assets/icons/heart-line-bold.svg');
     background-color: var(--color-clear);
 }
+
+.icon--search {
+    mask-image: url('../assets/icons/search.svg');
+    background-color: var(--color-dark);
+}
