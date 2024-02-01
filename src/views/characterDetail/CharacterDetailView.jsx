@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { useMarvelContext } from '../../context/marvelContext';
 import FavoriteButton from '../../components/favoriteButton/FavoriteButton';
 import { getMarvelCharacter, getMarvelCharacterComics } from '../../services/marvelServices';
+import CharacterComic from '../../components/characterComic/CharacterComic';
 
 const CharacterDetailView = () => {
     useEffect(() => {}, []);
@@ -71,19 +72,7 @@ const CharacterDetailView = () => {
                         <div className="character-detail-view__comics__title">Comics</div>
                         <div className="character-detail-view__comics__list">
                             {characterComics.map((el) => (
-                                <div key={el.id} className="comic">
-                                    <div className="comic__thumbnail">
-                                        <img
-                                            width={150}
-                                            src={`${el.thumbnail.path}.${el.thumbnail.extension}`}
-                                            alt={el.name}
-                                        />
-                                    </div>
-                                    <div className="comic__title">{el.title}</div>
-                                    <div className="comic__date">
-                                        {new Date(el.dates[0].date).getFullYear()}
-                                    </div>
-                                </div>
+                                <CharacterComic key={el.id} comicData={el} />
                             ))}
                         </div>
                     </div>
