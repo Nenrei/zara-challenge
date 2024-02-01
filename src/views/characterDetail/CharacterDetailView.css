@@ -91,7 +91,7 @@
     background-color: var(--marver-red);
 }
 
-@media (min-device-width: 540px) {
+@media (min-width: 540px) {
     .character-detail-view__character {
         flex-direction: row;
         gap: 20px;

@@ -58,14 +58,15 @@
     transition-duration: 0.3s;
 }
 
-.char-card:hover .char-card__name {
-    background-position: 0 0;
-}
-
 .char-card__name__text {
     cursor: text;
 }
 
-.char-card:hover .char-card__name__fav.icon--heart {
-    background-color: var(--color-clear);
+@media (min-width: 540px) {
+    .char-card:hover .char-card__name {
+        background-position: 0 0;
+    }
+    .char-card:hover .char-card__name__fav.icon--heart {
+        background-color: var(--color-clear);
+    }
 }

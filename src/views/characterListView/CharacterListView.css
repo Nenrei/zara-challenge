@@ -10,4 +10,9 @@
     flex-flow: wrap;
     gap: 10px;
     justify-content: center;
+    opacity: 1;
+    transition-duration: 1s;
+}
+.character-list-view__list--loading {
+    opacity: 0;
 }

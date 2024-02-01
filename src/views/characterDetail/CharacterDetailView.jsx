@@ -24,7 +24,6 @@ const CharacterDetailView = () => {
             });
         getMarvelCharacterComics(characterId)
             .then((result) => {
-                console.log(result);
                 setCharacterComics(result);
             })
             .catch((error) => {

@@ -2,14 +2,14 @@ import React, { createContext, useState } from 'react';
 
 const MarvelContext = createContext({});
 
-const MarvelContextProvider = ({ children }) => {
+const MarvelContextProvider = ({ defaultValue, children }) => {
     const [favoriteCharacters, setFavoriteCharacters] = useState([]);
 
     const isFavoriteCharacter = (id) => {
         return favoriteCharacters.find((el) => el.id === id) != null;
     };
 
-    const value = {
+    let value = {
         states: {
             favorite: {
                 favoriteCharacters,
@@ -20,6 +20,10 @@ const MarvelContextProvider = ({ children }) => {
             isFavoriteCharacter,
         },
     };
+
+    if (defaultValue) {
+        value = { ...value, ...defaultValue };
+    }
 
     return <MarvelContext.Provider value={value}>{children}</MarvelContext.Provider>;
 };

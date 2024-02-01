@@ -43,9 +43,9 @@ const FavoriteButton = ({ characterData, boldIcon }) => {
 
 FavoriteButton.propTypes = {
     characterData: PropTypes.shape({
-        id: PropTypes.number.required,
-    }).required,
-    boldIcon: PropTypes.bool.required,
+        id: PropTypes.number.isRequired,
+    }).isRequired,
+    boldIcon: PropTypes.bool.isRequired,
 };
 
 export default FavoriteButton;

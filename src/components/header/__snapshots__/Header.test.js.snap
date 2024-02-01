@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test de header 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header__logo"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      src="test-file-stub"
+    />
+  </div>
+  <div
+    className="header__fav-count"
+    onClick={[Function]}
+  >
+    <div
+      className="icon icon--heart header__fav-count__icon"
+    />
+    <div
+      className="header__fav-count__text"
+    >
+      0
+    </div>
+  </div>
+</header>
+`;

@@ -3,6 +3,7 @@ import { getMarvelCharacters } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
 import './CharacterListView.css';
 import SearchBar from '../../components/searchBar/SearchBar';
+import classNames from 'classnames';
 
 const CharacterListView = () => {
     const [characters, setCharacters] = useState([]);
@@ -12,6 +13,7 @@ const CharacterListView = () => {
     }, []);
 
     const searchCharacters = (name) => {
+        setCharacters([]);
         getMarvelCharacters(name ? name.trim() : '')
             .then((result) => {
                 setCharacters(result);

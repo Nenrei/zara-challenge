@@ -8,7 +8,7 @@ const CharacterComic = ({ comicData }) => {
             <div className="comic__thumbnail">
                 <img
                     src={`${comicData.thumbnail.path}.${comicData.thumbnail.extension}`}
-                    alt={comicData.name}
+                    alt={comicData.title}
                 />
             </div>
             <div className="comic__title">{comicData.title}</div>
@@ -23,7 +23,6 @@ CharacterComic.propTypes = {
             path: PropTypes.string.isRequired,
             extension: PropTypes.string.isRequired,
         }),
-        name: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
         dates: PropTypes.array,

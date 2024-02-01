@@ -30,8 +30,8 @@ const SearchBar = ({ searchResultCount, onEnterPress }) => {
 };
 
 SearchBar.propTypes = {
-    searchResultCount: PropTypes.number.required,
-    onEnterPress: PropTypes.func.required,
+    searchResultCount: PropTypes.number.isRequired,
+    onEnterPress: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

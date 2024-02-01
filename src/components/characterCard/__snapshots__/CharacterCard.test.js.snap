@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fav character card 1`] = `
+<div
+  className="char-card"
+  onClick={[Function]}
+>
+  <div
+    className="char-card__thumbnail"
+  >
+    <img
+      alt="Spider-Man (Peter Parker)"
+      src="http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b.jpg"
+    />
+  </div>
+  <div
+    className="char-card__splitter"
+  />
+  <div
+    className="char-card__name corner-triangle"
+  >
+    <div
+      className="char-card__name__text"
+    >
+      Spider-Man (Peter Parker)
+    </div>
+    <div
+      className="char-card__name__fav icon icon--heart-line-bold"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`No fav character card 1`] = `
+<div
+  className="char-card"
+  onClick={[Function]}
+>
+  <div
+    className="char-card__thumbnail"
+  >
+    <img
+      alt="Spider-Man (Peter Parker)"
+      src="http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b.jpg"
+    />
+  </div>
+  <div
+    className="char-card__splitter"
+  />
+  <div
+    className="char-card__name corner-triangle"
+  >
+    <div
+      className="char-card__name__text"
+    >
+      Spider-Man (Peter Parker)
+    </div>
+    <div
+      className="char-card__name__fav icon icon--heart-line-bold"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
