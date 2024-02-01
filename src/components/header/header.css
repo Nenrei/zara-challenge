@@ -6,7 +6,16 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 16px 48px;
+    padding: 16px;
+
+    /*position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;*/
+}
+
+.header__logo {
+    cursor: pointer;
 }
 
 .header__fav-count {
@@ -16,6 +25,7 @@
     align-items: center;
     gap: 8px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .header__fav-count__icon {
@@ -25,4 +35,10 @@
 
 .header__fav-count__text {
     color: var(--color-clear);
+}
+
+@media (min-device-width: 540px) {
+    .header {
+        padding: 16px 48px;
+    }
 }

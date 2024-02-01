@@ -1,16 +1,19 @@
 .char-card {
     width: 173px;
     height: 246px;
+    cursor: pointer;
 }
 
 .char-card__thumbnail {
-    width: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
+    width: 173px;
+    height: 173px;
 }
 
 .char-card__thumbnail img {
-    max-height: 100%;
+    width: 173px;
+    height: 173px;
+    object-fit: cover;
+    object-position: left;
 }
 
 .char-card__splitter {
@@ -52,13 +55,15 @@
     min-width: 12px;
     height: 12px;
 
-    cursor: pointer;
-
     transition-duration: 0.3s;
 }
 
 .char-card:hover .char-card__name {
     background-position: 0 0;
+}
+
+.char-card__name__text {
+    cursor: text;
 }
 
 .char-card:hover .char-card__name__fav.icon--heart {

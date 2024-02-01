@@ -1,5 +1,11 @@
 .character-list-view {
-    padding: 48px 0;
+    padding: 48px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.character-list-view__list {
     display: flex;
     flex-flow: wrap;
     gap: 10px;

@@ -4,45 +4,13 @@ import './CharacterCard.css';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
+import FavoriteButton from '../favoriteButton/FavoriteButton';
 
 const CharacterCard = ({ characterData }) => {
     const navigate = useNavigate();
 
-    const {
-        states: {
-            favorite: { favoriteCharacters, setFavoriteCharacters },
-        },
-        actions: { isFavoriteCharacter },
-    } = useMarvelContext();
-
-    const isFavorite = isFavoriteCharacter(characterData.id);
-
-    const heartClass = classNames({
-        'char-card__name__fav': true,
-        icon: true,
-        'icon--heart-line-bold': !isFavorite,
-        'icon--heart': isFavorite,
-    });
-
     const handleCardClick = () => {
         navigate(`/character/${characterData.id}`);
-    };
-
-    const toggleFavorite = (e) => {
-        e.stopPropagation();
-
-        const favCopy = [...favoriteCharacters];
-
-        if (isFavorite) {
-            favCopy.splice(
-                favCopy.indexOf((el) => el.id === characterData.id),
-                1,
-            );
-        } else {
-            favCopy.push(characterData);
-        }
-
-        setFavoriteCharacters(favCopy);
     };
 
     return (
@@ -56,7 +24,7 @@ const CharacterCard = ({ characterData }) => {
             <div className={'char-card__splitter'}></div>
             <div className={'char-card__name corner-triangle'}>
                 <div className={'char-card__name__text'}>{characterData.name}</div>
-                <div className={heartClass} onClick={toggleFavorite}></div>
+                <FavoriteButton characterData={characterData} boldIcon={true} />
             </div>
         </div>
     );

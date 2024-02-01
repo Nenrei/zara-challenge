@@ -2,20 +2,31 @@ import React from 'react';
 import { useMarvelContext } from '../../context/marvelContext';
 import './header.css';
 import logo from '../../assets/images/logo.png';
+import { useNavigate } from 'react-router';
 
-const CharacterListView = () => {
+const Header = () => {
     const {
         states: {
             favorite: { favoriteCharacters },
         },
     } = useMarvelContext();
 
+    const navigate = useNavigate();
+
+    const handleFavClick = () => {
+        navigate('/favorites');
+    };
+
+    const handleHomeClick = () => {
+        navigate('/');
+    };
+
     return (
         <header className="header">
-            <div className={'header__logo'}>
+            <div className={'header__logo'} onClick={handleHomeClick}>
                 <img src={logo} alt={'logo'} />
             </div>
-            <div className={'header__fav-count'}>
+            <div className={'header__fav-count'} onClick={handleFavClick}>
                 <div className={'icon icon--heart header__fav-count__icon'}></div>
                 <div className={'header__fav-count__text'}>{favoriteCharacters.length}</div>
             </div>
@@ -23,4 +34,4 @@ const CharacterListView = () => {
     );
 };
 
-export default CharacterListView;
+export default Header;
