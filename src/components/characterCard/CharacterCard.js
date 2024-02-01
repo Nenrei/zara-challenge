@@ -1,7 +1,5 @@
 import React from 'react';
-import { useMarvelContext } from '../../context/marvelContext';
 import './CharacterCard.css';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
 import FavoriteButton from '../favoriteButton/FavoriteButton';

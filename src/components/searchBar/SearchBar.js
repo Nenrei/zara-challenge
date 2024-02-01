@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
+import PropTypes from 'prop-types';
 
 const SearchBar = ({ searchResultCount, onEnterPress }) => {
     const [inputValue, setInputValue] = useState('');
@@ -26,6 +27,11 @@ const SearchBar = ({ searchResultCount, onEnterPress }) => {
             <div className="search-bar__result-count">{searchResultCount} results</div>
         </div>
     );
+};
+
+SearchBar.propTypes = {
+    searchResultCount: PropTypes.number.required,
+    onEnterPress: PropTypes.func.required,
 };
 
 export default SearchBar;

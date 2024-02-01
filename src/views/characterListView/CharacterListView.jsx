@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getMarvelCharacters } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
 import './CharacterListView.css';
-import { useMarvelContext } from '../../context/marvelContext';
 import SearchBar from '../../components/searchBar/SearchBar';
 
 const CharacterListView = () => {
@@ -13,7 +12,7 @@ const CharacterListView = () => {
     }, []);
 
     const searchCharacters = (name) => {
-        getMarvelCharacters(name)
+        getMarvelCharacters(name ? name.trim() : '')
             .then((result) => {
                 setCharacters(result);
             })
@@ -27,7 +26,6 @@ const CharacterListView = () => {
             <SearchBar
                 searchResultCount={characters.length}
                 onEnterPress={(value) => {
-                    console.log(value);
                     searchCharacters(value);
                 }}
             />

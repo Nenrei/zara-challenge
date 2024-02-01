@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMarvelContext } from '../../context/marvelContext';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const FavoriteButton = ({ characterData, boldIcon }) => {
     const {
@@ -38,6 +39,13 @@ const FavoriteButton = ({ characterData, boldIcon }) => {
     };
 
     return <div className={heartClass} onClick={toggleFavorite}></div>;
+};
+
+FavoriteButton.propTypes = {
+    characterData: PropTypes.shape({
+        id: PropTypes.number.required,
+    }).required,
+    boldIcon: PropTypes.bool.required,
 };
 
 export default FavoriteButton;
