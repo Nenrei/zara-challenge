@@ -9,21 +9,18 @@ const MarvelContextProvider = ({ defaultValue, children }) => {
         return favoriteCharacters.find((el) => el.id === id) != null;
     };
 
-    let value = {
+    const value = {
         states: {
             favorite: {
-                favoriteCharacters,
+                favoriteCharacters:
+                    defaultValue?.states?.favorite?.favoriteCharacters || favoriteCharacters,
                 setFavoriteCharacters,
             },
         },
         actions: {
-            isFavoriteCharacter,
+            isFavoriteCharacter: defaultValue?.actions?.isFavoriteCharacter || isFavoriteCharacter,
         },
     };
-
-    if (defaultValue) {
-        value = { ...value, ...defaultValue };
-    }
 
     return <MarvelContext.Provider value={value}>{children}</MarvelContext.Provider>;
 };
