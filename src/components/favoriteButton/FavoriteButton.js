@@ -14,7 +14,15 @@ const FavoriteButton = ({ characterData, boldIcon }) => {
         'icon--heart': isFavoriteCharacter(),
     });
 
-    return <div className={heartClass} onClick={toggleFavorite}></div>;
+    return (
+        <div
+            className={heartClass}
+            onClick={(e) => {
+                e.stopPropagation();
+                toggleFavorite();
+            }}
+        ></div>
+    );
 };
 
 FavoriteButton.propTypes = {

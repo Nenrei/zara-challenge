@@ -23,12 +23,12 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className={'header__logo'} onClick={handleHomeClick}>
-                <img src={logo} alt={'logo'} />
+            <div className="header__logo" onClick={handleHomeClick}>
+                <img src={logo} alt="logo" />
             </div>
-            <div className={'header__fav-count'} onClick={handleFavClick}>
-                <div className={'icon icon--heart header__fav-count__icon'}></div>
-                <div className={'header__fav-count__text'}>{favoriteCharacters.length}</div>
+            <div className="header__fav-count" onClick={handleFavClick}>
+                <div className="icon icon--heart header__fav-count__icon"></div>
+                <div className="header__fav-count__text">{favoriteCharacters.length}</div>
             </div>
         </header>
     );

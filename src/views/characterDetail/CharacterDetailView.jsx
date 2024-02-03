@@ -34,7 +34,7 @@ const CharacterDetailView = () => {
         <section className="character-detail-view">
             <div className="character-detail-view__header corner-triangle">
                 <div className="character-detail-view__character">
-                    <div className={'character-detail-view__character__thumbnail'}>
+                    <div className="character-detail-view__character__thumbnail">
                         {characterData && (
                             <img
                                 src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
@@ -45,12 +45,8 @@ const CharacterDetailView = () => {
                     <div className="character-detail-view__character__resume">
                         {characterData && (
                             <>
-                                <div className={'character-detail-view__character__resume__name'}>
-                                    <div
-                                        className={
-                                            'character-detail-view__character__resume__name__text'
-                                        }
-                                    >
+                                <div className="character-detail-view__character__resume__name">
+                                    <div className="character-detail-view__character__resume__name__text">
                                         {characterData.name}
                                     </div>
                                     <FavoriteButton
@@ -58,11 +54,7 @@ const CharacterDetailView = () => {
                                         boldIcon={false}
                                     />
                                 </div>
-                                <div
-                                    className={
-                                        'character-detail-view__character__resume__description'
-                                    }
-                                >
+                                <div className="character-detail-view__character__resume__description">
                                     {characterData.description}
                                 </div>
                             </>

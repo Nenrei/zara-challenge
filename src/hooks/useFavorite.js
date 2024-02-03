@@ -11,21 +11,16 @@ const useFavorite = (characterData) => {
         return favoriteCharacters.find((el) => el.id === characterData.id) != null;
     };
 
-    const toggleFavorite = (e) => {
-        e.stopPropagation();
-
+    const toggleFavorite = () => {
         const favCopy = [...favoriteCharacters];
 
         if (isFavoriteCharacter()) {
-            favCopy.splice(
-                favCopy.findIndex((el) => el.id === characterData.id),
-                1,
-            );
+            const updatedFavorites = favCopy.filter((el) => el.id !== characterData.id);
+            setFavoriteCharacters(updatedFavorites);
         } else {
             favCopy.push(characterData);
+            setFavoriteCharacters(favCopy);
         }
-
-        setFavoriteCharacters(favCopy);
     };
 
     return { isFavoriteCharacter, toggleFavorite };

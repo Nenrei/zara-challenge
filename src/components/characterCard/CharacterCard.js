@@ -12,16 +12,16 @@ const CharacterCard = ({ characterData }) => {
     };
 
     return (
-        <div className={'char-card'} onClick={handleCardClick} role="card">
-            <div className={'char-card__thumbnail'}>
+        <div className="char-card" onClick={handleCardClick} role="card">
+            <div className="char-card__thumbnail">
                 <img
                     src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
                     alt={characterData.name}
                 />
             </div>
-            <div className={'char-card__splitter'}></div>
-            <div className={'char-card__name corner-triangle'}>
-                <div className={'char-card__name__text'}>{characterData.name}</div>
+            <div className="char-card__splitter"></div>
+            <div className="char-card__name corner-triangle">
+                <div className="char-card__name__text">{characterData.name}</div>
                 <FavoriteButton characterData={characterData} boldIcon={true} />
             </div>
         </div>

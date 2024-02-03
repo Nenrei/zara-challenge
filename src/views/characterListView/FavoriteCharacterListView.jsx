@@ -24,7 +24,7 @@ const FavoriteCharacterListView = () => {
     };
 
     return (
-        <section className={'character-list-view'}>
+        <section className="character-list-view">
             <SearchBar
                 searchResultCount={favoriteCharacters.length}
                 onEnterPress={(value) => {
