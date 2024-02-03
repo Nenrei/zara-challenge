@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 import PropTypes from 'prop-types';
 
-const SearchBar = ({ searchResultCount, onEnterPress }) => {
+const SearchBar = ({ searchResultCount, onEnterPress, isLoading }) => {
     const [inputValue, setInputValue] = useState('');
 
     return (
@@ -24,7 +24,9 @@ const SearchBar = ({ searchResultCount, onEnterPress }) => {
                     }}
                 />
             </div>
-            <div className="search-bar__result-count">{searchResultCount} results</div>
+            <div className="search-bar__result-count">
+                {isLoading ? 'Loading...' : `${searchResultCount} results`}
+            </div>
         </div>
     );
 };
@@ -32,6 +34,7 @@ const SearchBar = ({ searchResultCount, onEnterPress }) => {
 SearchBar.propTypes = {
     searchResultCount: PropTypes.number.isRequired,
     onEnterPress: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;

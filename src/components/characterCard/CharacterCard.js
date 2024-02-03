@@ -12,7 +12,7 @@ const CharacterCard = ({ characterData }) => {
     };
 
     return (
-        <div className={'char-card'} onClick={handleCardClick}>
+        <div className={'char-card'} onClick={handleCardClick} role="card">
             <div className={'char-card__thumbnail'}>
                 <img
                     src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
