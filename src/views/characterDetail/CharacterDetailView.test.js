@@ -1,13 +1,13 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { MarvelContextProvider } from '../src/context/marvelContext';
+import { MarvelContextProvider } from '../../context/marvelContext';
 
-import { getMarvelCharacter, getMarvelCharacterComics } from '../src/services/marvelServices';
-import CharacterDetailView from '../src/views/characterDetail/CharacterDetailView';
-import { comicsMiles, milesMorales } from '../src/utils/testData';
+import { getMarvelCharacter, getMarvelCharacterComics } from '../../services/marvelServices';
+import CharacterDetailView from './CharacterDetailView';
+import { comicsMiles, milesMorales } from '../../utils/testData';
 
-jest.mock('../src/services/marvelServices');
+jest.mock('../../services/marvelServices');
 
 test('Renders the character detail component', async () => {
     getMarvelCharacter.mockReturnValue(Promise.resolve([milesMorales]));

@@ -12,30 +12,23 @@ const config = {
 const apikey = '1a19eba14d8a4d15f69f1219622b13bf';
 
 const CACHE_TTL = 60; //seconds
-const cache = [];
-const getCacheItem = (path) => cache.find((el) => el.path === path);
+const cache = {};
 const existInCache = (path) => {
-    const item = cache.find((el) => el.path === path);
+    const item = cache[path];
     if (item == null) {
         return false;
     }
 
     const time = (new Date() - item.date) / 1000;
     if (time > CACHE_TTL) {
-        removeFromCache(path);
+        delete cache[path];
         return false;
     }
 
     return true;
 };
 const addToCache = (path, data) => {
-    cache.push({ path, data, date: new Date() });
-};
-const removeFromCache = (path) => {
-    cache.splice(
-        cache.findIndex((el) => el.path === path),
-        1,
-    );
+    cache[path] = { data, date: new Date() };
 };
 
 const parseResult = (path, result) => {
@@ -47,7 +40,7 @@ const parseResult = (path, result) => {
 const returnCacheOrRest = (path) => {
     if (existInCache(path)) {
         return new Promise((resolve) => {
-            resolve(getCacheItem(path).data);
+            resolve(cache[path].data);
         });
     } else {
         return marvelAxios.get(path, config).then((result) => parseResult(path, result));

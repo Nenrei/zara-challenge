@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
-import { MarvelContextProvider } from '../src/context/marvelContext';
-import useFavorite from '../src/hooks/useFavorite';
-import { thor } from '../src/utils/testData';
+import { MarvelContextProvider } from '../../context/marvelContext';
+import useFavorite from './useFavorite';
+import { thor } from '../../utils/testData';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 

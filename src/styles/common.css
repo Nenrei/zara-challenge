@@ -1,5 +1,13 @@
+body,
+html,
+input {
+    font-family:
+        Roboto Condensed,
+        serif;
+}
+
 .corner-triangle::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 0;
     height: 0;
@@ -9,4 +17,8 @@
     transform: rotate(0deg);
     bottom: 0;
     right: 0;
+}
+
+a {
+    display: block;
 }

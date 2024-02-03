@@ -1,6 +1,3 @@
-.character-detail-view {
-}
-
 .character-detail-view__header {
     background-color: var(--color-dark);
     color: var(--color-clear);
@@ -51,7 +48,7 @@
     text-transform: uppercase;
 }
 
-.character-detail-view__character__resume .char-card__name__fav {
+.character-detail-view__character__resume .favorite-button {
     margin-top: 3px;
     width: 32px;
     height: 32px;

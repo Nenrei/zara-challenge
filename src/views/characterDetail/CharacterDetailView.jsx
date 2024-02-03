@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import FavoriteButton from '../../components/favoriteButton/FavoriteButton';
 import { getMarvelCharacter, getMarvelCharacterComics } from '../../services/marvelServices';
 import CharacterComic from '../../components/characterComic/CharacterComic';
+import Error from '../../components/error/Error';
 
 const CharacterDetailView = () => {
     useEffect(() => {}, []);
@@ -13,22 +14,35 @@ const CharacterDetailView = () => {
     const [characterData, setCharacterData] = useState(null);
     const [characterComics, setCharacterComics] = useState([]);
 
+    const [error, setError] = useState(null);
+
     useEffect(() => {
+        getCharacterData();
+        getComicsData();
+    }, []);
+
+    const getCharacterData = () => {
         getMarvelCharacter(characterId)
             .then((result) => {
                 setCharacterData(result[0]);
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
+                setError(CHAR_ERROR);
             });
+    };
+
+    const getComicsData = () => {
         getMarvelCharacterComics(characterId)
             .then((result) => {
                 setCharacterComics(result);
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
+                setError(COMIC_ERROR);
             });
-    }, []);
+    };
+
+    const CHAR_ERROR = { text: "Error loading character's detail.", function: getCharacterData };
+    const COMIC_ERROR = { text: "Error loading character's comics.", function: getComicsData };
 
     return (
         <section className="character-detail-view">
@@ -65,14 +79,23 @@ const CharacterDetailView = () => {
 
             <div className="character-detail-view__comics">
                 <div className="character-detail-view__comics__title">Comics</div>
-                {characterData && characterComics && (
-                    <div className="character-detail-view__comics__list">
-                        {characterComics.map((el) => (
-                            <CharacterComic key={el.id} comicData={el} />
-                        ))}
-                    </div>
-                )}
+
+                <div className="character-detail-view__comics__list">
+                    {characterComics?.map((el) => (
+                        <CharacterComic key={el.id} comicData={el} />
+                    ))}
+                </div>
             </div>
+
+            {error && (
+                <Error
+                    errorText={error.text}
+                    onErrorButtonClick={() => {
+                        debugger;
+                        error.function();
+                    }}
+                />
+            )}
         </section>
     );
 };

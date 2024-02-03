@@ -1,4 +1,4 @@
-import { useMarvelContext } from '../context/marvelContext';
+import { useMarvelContext } from '../../context/marvelContext';
 
 const useFavorite = (characterData) => {
     const {

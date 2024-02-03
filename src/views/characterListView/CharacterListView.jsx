@@ -1,30 +1,53 @@
 import React, { useEffect, useState } from 'react';
+import { useMarvelContext } from '../../context/marvelContext';
 import { getMarvelCharacters } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
-import './CharacterListView.css';
 import SearchBar from '../../components/searchBar/SearchBar';
+import PropTypes from 'prop-types';
+import './CharacterListView.css';
+import Error from '../../components/error/Error';
 
-const CharacterListView = () => {
+const CharacterListView = ({ renderFavoriteList }) => {
+    const {
+        states: {
+            favorite: { favoriteCharacters },
+        },
+    } = useMarvelContext();
+
     const [characters, setCharacters] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-        searchCharacters(null);
-    }, []);
+        if (renderFavoriteList) {
+            setCharacters(favoriteCharacters);
+        } else {
+            searchCharacters(null);
+        }
+    }, [renderFavoriteList]);
 
     const searchCharacters = (name) => {
-        setCharacters([]);
-        setLoading(true);
-        getMarvelCharacters(name ? name.trim() : '')
-            .then((result) => {
-                setCharacters(result);
-                setLoading(false);
-            })
-            .catch((error) => {
-                setCharacters([]);
-                setLoading(false);
-                console.log(error);
-            });
+        if (renderFavoriteList) {
+            setCharacters(
+                favoriteCharacters.filter((el) =>
+                    el.name.toLowerCase().startsWith(name.toLowerCase()),
+                ),
+            );
+            setLoading(false);
+        } else {
+            setCharacters([]);
+            setLoading(true);
+            getMarvelCharacters(name ? name.trim() : '')
+                .then((result) => {
+                    setCharacters(result);
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setCharacters([]);
+                    setLoading(false);
+                    setError(true);
+                });
+        }
     };
 
     return (
@@ -38,11 +61,25 @@ const CharacterListView = () => {
             />
 
             <div className="character-list-view__list">
-                {characters &&
-                    characters.map((el) => <CharacterCard key={el.id} characterData={el} />)}
+                {characters?.map((el) => (
+                    <CharacterCard key={el.id} characterData={el} />
+                ))}
             </div>
+
+            {error && (
+                <Error
+                    errorText={'Error loading characters.'}
+                    onErrorButtonClick={() => {
+                        getMarvelCharacters(null);
+                    }}
+                />
+            )}
         </section>
     );
+};
+
+CharacterListView.propTypes = {
+    renderFavoriteList: PropTypes.bool.isRequired,
 };
 
 export default CharacterListView;

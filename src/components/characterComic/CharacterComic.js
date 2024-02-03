@@ -3,6 +3,15 @@ import './characterComic.css';
 import PropTypes from 'prop-types';
 
 const CharacterComic = ({ comicData }) => {
+    const getDate = () => {
+        const date = new Date(comicData.dates[0].date);
+        if (isNaN(date)) {
+            return '';
+        }
+
+        return date.getFullYear();
+    };
+
     return (
         <div className="comic" role="comic">
             <div className="comic__thumbnail">
@@ -14,7 +23,7 @@ const CharacterComic = ({ comicData }) => {
             <div className="comic__title" title={comicData.title}>
                 {comicData.title}
             </div>
-            <div className="comic__date">{new Date(comicData.dates[0].date).getFullYear()}</div>
+            <div className="comic__date">{getDate()}</div>
         </div>
     );
 };

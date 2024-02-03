@@ -1,14 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import useFavorite from '../../hooks/useFavorite';
+import useFavorite from '../../hooks/useFavorite/useFavorite';
+import './FavoriteButton.css';
 
 const FavoriteButton = ({ characterData, boldIcon }) => {
     const { isFavoriteCharacter, toggleFavorite } = useFavorite(characterData);
 
-    const heartClass = classNames({
-        'char-card__name__fav': true,
-        icon: true,
+    const heartClass = classNames('favorite-button', 'icon', {
         'icon--heart-line-bold': boldIcon && !isFavoriteCharacter(),
         'icon--heart-line': !boldIcon && !isFavoriteCharacter(),
         'icon--heart': isFavoriteCharacter(),

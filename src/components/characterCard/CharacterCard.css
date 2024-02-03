@@ -1,24 +1,6 @@
 .char-card {
     width: 173px;
     height: 246px;
-    cursor: pointer;
-}
-
-@keyframes animacionInfinita {
-    0% {
-        opacity: 0.1;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 0.1;
-    }
-}
-
-.char-card--placeholder {
-    background-color: var(--color-dark);
-    opacity: 0.2;
 }
 
 .char-card__thumbnail {
@@ -68,22 +50,18 @@
     transition: background 0.3s;
 }
 
-.char-card__name__fav {
+.char-card .favorite-button {
     min-width: 12px;
     height: 12px;
 
     transition-duration: 0.3s;
 }
 
-.char-card__name__text {
-    cursor: text;
-}
-
 @media (min-width: 540px) {
     .char-card:hover .char-card__name {
         background-position: 0 0;
     }
-    .char-card:hover .char-card__name__fav.icon--heart {
+    .char-card:hover .favorite-button.icon--heart {
         background-color: var(--color-clear);
     }
 }
