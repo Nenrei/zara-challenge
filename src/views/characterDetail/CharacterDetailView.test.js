@@ -14,7 +14,7 @@ test('Renders the character detail component', async () => {
 
     getMarvelCharacterComics.mockReturnValue(Promise.resolve(comicsMiles));
 
-    render(
+    const { container } = render(
         <MarvelContextProvider>
             <CharacterDetailView />
         </MarvelContextProvider>,
@@ -23,6 +23,6 @@ test('Renders the character detail component', async () => {
     const results = await screen.findByText(milesMorales.name);
     expect(results).toBeInTheDocument();
 
-    const comics = await screen.findAllByRole('comic');
-    expect(comics).toHaveLength(2);
+    const comicItems = container.querySelectorAll('.comic');
+    expect(comicItems).toHaveLength(2);
 });

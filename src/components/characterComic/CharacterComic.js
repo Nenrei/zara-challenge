@@ -13,7 +13,7 @@ const CharacterComic = ({ comicData }) => {
     };
 
     return (
-        <div className="comic" role="comic">
+        <div className="comic">
             <div className="comic__thumbnail">
                 <img
                     src={`${comicData.thumbnail.path}.${comicData.thumbnail.extension}`}

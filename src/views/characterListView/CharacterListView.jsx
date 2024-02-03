@@ -19,6 +19,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        setError(null);
         if (renderFavoriteList) {
             setCharacters(favoriteCharacters);
         } else {
@@ -27,6 +28,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
     }, [renderFavoriteList]);
 
     const searchCharacters = (name) => {
+        setError(null);
         if (renderFavoriteList) {
             setCharacters(
                 favoriteCharacters.filter((el) =>
@@ -37,6 +39,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
         } else {
             setCharacters([]);
             setLoading(true);
+
             getMarvelCharacters(name ? name.trim() : '')
                 .then((result) => {
                     setCharacters(result);
@@ -70,7 +73,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
                 <Error
                     errorText={'Error loading characters.'}
                     onErrorButtonClick={() => {
-                        getMarvelCharacters(null);
+                        searchCharacters(null);
                     }}
                 />
             )}

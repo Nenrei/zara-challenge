@@ -1,27 +1,27 @@
-.char-card {
+.character-card {
     width: 173px;
     height: 246px;
 }
 
-.char-card__thumbnail {
+.character-card__thumbnail {
     width: 173px;
     height: 173px;
 }
 
-.char-card__thumbnail img {
+.character-card__thumbnail img {
     width: 173px;
     height: 173px;
     object-fit: cover;
     object-position: left;
 }
 
-.char-card__splitter {
+.character-card__splitter {
     width: 100%;
     height: 5px;
     background-color: var(--marver-red);
 }
 
-.char-card__name {
+.character-card__name {
     width: 100%;
     height: 56px;
     color: white;
@@ -50,7 +50,7 @@
     transition: background 0.3s;
 }
 
-.char-card .favorite-button {
+.character-card .favorite-button {
     min-width: 12px;
     height: 12px;
 
@@ -58,10 +58,10 @@
 }
 
 @media (min-width: 540px) {
-    .char-card:hover .char-card__name {
+    .character-card:hover .character-card__name {
         background-position: 0 0;
     }
-    .char-card:hover .favorite-button.icon--heart {
+    .character-card:hover .favorite-button.icon--heart {
         background-color: var(--color-clear);
     }
 }

@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 
 const CharacterCard = ({ characterData }) => {
     return (
-        <div className="char-card" role="card">
-            <Link to={`/character/${characterData.id}`} className="char-card__thumbnail">
+        <div className="character-card">
+            <Link to={`/character/${characterData.id}`} className="character-card__thumbnail">
                 <img
                     src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
                     alt={characterData.name}
                 />
             </Link>
-            <div className="char-card__splitter"></div>
-            <div className="char-card__name corner-triangle">
-                <div className="char-card__name__text">{characterData.name}</div>
+            <div className="character-card__splitter"></div>
+            <div className="character-card__name corner-triangle">
+                <div className="character-card__name__text">{characterData.name}</div>
                 <FavoriteButton characterData={characterData} boldIcon={true} />
             </div>
         </div>

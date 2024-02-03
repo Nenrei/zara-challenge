@@ -9,6 +9,7 @@ import { getMarvelCharacters } from '../../services/marvelServices';
 import { characterList } from '../../utils/testData';
 
 jest.mock('../../services/marvelServices');
+
 describe('Characters test suite', () => {
     test('Renders the component with no characters', async () => {
         getMarvelCharacters.mockReturnValue(Promise.resolve([]));
@@ -26,7 +27,7 @@ describe('Characters test suite', () => {
 
     test('Renders the component with characters', async () => {
         getMarvelCharacters.mockReturnValue(Promise.resolve(characterList));
-        render(
+        const { container } = render(
             <MarvelContextProvider>
                 <BrowserRouter>
                     <CharacterListView renderFavoriteList={false} />
@@ -37,7 +38,7 @@ describe('Characters test suite', () => {
         const results = await screen.findByText('2 results');
         expect(results).toBeInTheDocument();
 
-        const characterItems = await screen.findAllByRole('card');
+        const characterItems = container.querySelectorAll('.character-card');
         expect(characterItems).toHaveLength(2);
     });
 
@@ -55,7 +56,7 @@ describe('Characters test suite', () => {
     });
 
     test('Renders the component with favorite characters', async () => {
-        render(
+        const { container } = render(
             <MarvelContextProvider
                 defaultValue={{
                     states: {
@@ -74,7 +75,7 @@ describe('Characters test suite', () => {
         const results = await screen.findByText('2 results');
         expect(results).toBeInTheDocument();
 
-        const characterItems = await screen.findAllByRole('card');
+        const characterItems = container.querySelectorAll('.character-card');
         expect(characterItems).toHaveLength(2);
     });
 });

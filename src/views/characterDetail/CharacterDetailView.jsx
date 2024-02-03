@@ -22,6 +22,7 @@ const CharacterDetailView = () => {
     }, []);
 
     const getCharacterData = () => {
+        setError(null);
         getMarvelCharacter(characterId)
             .then((result) => {
                 setCharacterData(result[0]);
@@ -32,6 +33,7 @@ const CharacterDetailView = () => {
     };
 
     const getComicsData = () => {
+        setError(null);
         getMarvelCharacterComics(characterId)
             .then((result) => {
                 setCharacterComics(result);
@@ -77,6 +79,15 @@ const CharacterDetailView = () => {
                 </div>
             </div>
 
+            {error && (
+                <Error
+                    errorText={error.text}
+                    onErrorButtonClick={() => {
+                        error.function();
+                    }}
+                />
+            )}
+
             <div className="character-detail-view__comics">
                 <div className="character-detail-view__comics__title">Comics</div>
 
@@ -86,16 +97,6 @@ const CharacterDetailView = () => {
                     ))}
                 </div>
             </div>
-
-            {error && (
-                <Error
-                    errorText={error.text}
-                    onErrorButtonClick={() => {
-                        debugger;
-                        error.function();
-                    }}
-                />
-            )}
         </section>
     );
 };
