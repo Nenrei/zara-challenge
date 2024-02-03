@@ -3,19 +3,15 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MarvelContextProvider } from '../src/context/marvelContext';
 import { BrowserRouter } from 'react-router-dom';
-import CharacterListView from '../src/views/characterListView/CharacterListView';
-
-import { getMarvelCharacters } from '../src/services/marvelServices';
 import { characterList } from '../src/utils/testData';
+import FavoriteCharacterListView from '../src/views/characterListView/FavoriteCharacterListView';
 
-jest.mock('../src/services/marvelServices');
-describe('Characters test suite', () => {
-    test('Renders the component with no characters', async () => {
-        getMarvelCharacters.mockReturnValue(Promise.resolve([]));
+describe('Favorite characters test suite', () => {
+    test('Renders the component with no favorite characters', async () => {
         render(
             <MarvelContextProvider>
                 <BrowserRouter>
-                    <CharacterListView />
+                    <FavoriteCharacterListView />
                 </BrowserRouter>
             </MarvelContextProvider>,
         );
@@ -24,12 +20,19 @@ describe('Characters test suite', () => {
         expect(results).toBeInTheDocument();
     });
 
-    test('Renders the component with characters', async () => {
-        getMarvelCharacters.mockReturnValue(Promise.resolve(characterList));
+    test('Renders the component with favorite characters', async () => {
         render(
-            <MarvelContextProvider>
+            <MarvelContextProvider
+                defaultValue={{
+                    states: {
+                        favorite: {
+                            favoriteCharacters: characterList,
+                        },
+                    },
+                }}
+            >
                 <BrowserRouter>
-                    <CharacterListView />
+                    <FavoriteCharacterListView />
                 </BrowserRouter>
             </MarvelContextProvider>,
         );

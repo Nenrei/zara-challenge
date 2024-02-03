@@ -5,10 +5,6 @@ const MarvelContext = createContext({});
 const MarvelContextProvider = ({ defaultValue, children }) => {
     const [favoriteCharacters, setFavoriteCharacters] = useState([]);
 
-    const isFavoriteCharacter = (id) => {
-        return favoriteCharacters.find((el) => el.id === id) != null;
-    };
-
     const value = {
         states: {
             favorite: {
@@ -16,9 +12,6 @@ const MarvelContextProvider = ({ defaultValue, children }) => {
                     defaultValue?.states?.favorite?.favoriteCharacters || favoriteCharacters,
                 setFavoriteCharacters,
             },
-        },
-        actions: {
-            isFavoriteCharacter: defaultValue?.actions?.isFavoriteCharacter || isFavoriteCharacter,
         },
     };
 

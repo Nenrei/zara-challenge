@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMarvelContext } from '../context/marvelContext';
 
 const useFavorite = (characterData) => {
@@ -6,15 +5,18 @@ const useFavorite = (characterData) => {
         states: {
             favorite: { favoriteCharacters, setFavoriteCharacters },
         },
-        actions: { isFavoriteCharacter },
     } = useMarvelContext();
 
-    const toggleFavorite = (characterData) => {
-        const isFavorite = favoriteCharacters.some((el) => el.id === characterData.id);
+    const isFavoriteCharacter = () => {
+        return favoriteCharacters.find((el) => el.id === characterData.id) != null;
+    };
+
+    const toggleFavorite = (e) => {
+        e.stopPropagation();
 
         const favCopy = [...favoriteCharacters];
 
-        if (isFavorite) {
+        if (isFavoriteCharacter()) {
             favCopy.splice(
                 favCopy.findIndex((el) => el.id === characterData.id),
                 1,
@@ -26,7 +28,7 @@ const useFavorite = (characterData) => {
         setFavoriteCharacters(favCopy);
     };
 
-    return { favoriteCharacters, toggleFavorite };
+    return { isFavoriteCharacter, toggleFavorite };
 };
 
 export default useFavorite;

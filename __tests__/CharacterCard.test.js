@@ -4,17 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { MarvelContextProvider } from '../src/context/marvelContext';
 import CharacterCard from '../src/components/characterCard/CharacterCard';
 import { BrowserRouter } from 'react-router-dom';
-
-const milesMorales = {
-    id: 1016181,
-    name: 'Spider-Man (Miles Morales)',
-    description:
-        'Teenager Miles Morales grew up in Brooklyn, New York. Recently, Miles took on the controversial and pressured role of Spider-Man shortly after the death of the original. Morales made his debut against The Kangaroo, much to the surprise and disapproval of many present at the confrontation.',
-    thumbnail: {
-        path: 'http://i.annihil.us/u/prod/marvel/i/mg/f/50/537bcfa1eed73',
-        extension: 'jpg',
-    },
-};
+import { milesMorales } from '../src/utils/testData';
 
 test('testing character card', () => {
     const { container } = render(
@@ -38,11 +28,6 @@ test('testing character card marked as favorite', () => {
                 states: {
                     favorite: {
                         favoriteCharacters: [milesMorales],
-                    },
-                },
-                actions: {
-                    isFavoriteCharacter: () => {
-                        return true;
                     },
                 },
             }}

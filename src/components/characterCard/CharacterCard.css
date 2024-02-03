@@ -4,6 +4,23 @@
     cursor: pointer;
 }
 
+@keyframes animacionInfinita {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+.char-card--placeholder {
+    background-color: var(--color-dark);
+    opacity: 0.2;
+}
+
 .char-card__thumbnail {
     width: 173px;
     height: 173px;
