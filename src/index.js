@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { MarvelContextProvider } from './context/marvelContext';
 import MarvelRouter from './routers/marvelRouter';
 
-import './styles/colors.css';
+import './styles/variables.css';
 import './styles/reset.css';
 import './styles/icons.css';
 import './styles/common.css';

@@ -27,6 +27,12 @@ const CharacterListView = ({ renderFavoriteList }) => {
         }
     }, [renderFavoriteList]);
 
+    useEffect(() => {
+        if (renderFavoriteList) {
+            setCharacters(favoriteCharacters);
+        }
+    }, [favoriteCharacters]);
+
     const searchCharacters = (name) => {
         setError(null);
         if (renderFavoriteList) {
