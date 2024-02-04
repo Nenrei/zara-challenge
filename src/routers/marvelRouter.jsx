@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import Header from '../components/header/Header';
 import CharacterListView from '../views/characterListView/CharacterListView';
@@ -23,6 +23,7 @@ const MarvelRouter = () => {
                             path="/favorites"
                             element={<CharacterListView renderFavoriteList={true} />}
                         />
+                        <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </main>
             </div>
