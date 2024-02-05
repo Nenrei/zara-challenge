@@ -4,8 +4,8 @@ A React app to query data about Marvel characters. This project has been made fo
 ## Installation
 Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.  
 This project has been created on a machine with the versions:
-- **Node** v16.14.2
-- **npm**: v8.5.0
+- **Node** v20.11.2
+- **npm**: v10.4.0
 
 1. Clone this repository:
     ```bash
