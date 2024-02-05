@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import { MarvelContextProvider } from '../../context/marvelContext';
 import { BrowserRouter } from 'react-router-dom';
-import { characterList } from '../../utils/testData';
+import { characterList } from '../../../__mocks__/testData';
 
 test('testing header component', () => {
     const { container } = render(

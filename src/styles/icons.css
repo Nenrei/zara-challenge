@@ -5,21 +5,21 @@
 }
 
 .icon--heart {
-    mask-image: url('../assets/icons/heart.svg');
+    mask-image: url('../../public/assets/icons/heart.svg');
     background-color: var(--marver-red);
 }
 
 .icon--heart-line {
-    mask-image: url('../assets/icons/heart-line.svg');
+    mask-image: url('../../public/assets/icons/heart-line.svg');
     background-color: var(--color-clear);
 }
 
 .icon--heart-line-bold {
-    mask-image: url('../assets/icons/heart-line-bold.svg');
+    mask-image: url('../../public/assets/icons/heart-line-bold.svg');
     background-color: var(--color-clear);
 }
 
 .icon--search {
-    mask-image: url('../assets/icons/search.svg');
+    mask-image: url('../../public/assets/icons/search.svg');
     background-color: var(--color-dark);
 }

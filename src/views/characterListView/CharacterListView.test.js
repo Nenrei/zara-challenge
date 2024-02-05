@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import CharacterListView from './CharacterListView';
 
 import { getMarvelCharacters } from '../../services/marvelServices';
-import { characterList } from '../../utils/testData';
+import { characterList } from '../../../__mocks__/testData';
 
 jest.mock('../../services/marvelServices');
 

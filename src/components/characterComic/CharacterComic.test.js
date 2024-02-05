@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MarvelContextProvider } from '../../context/marvelContext';
 import { BrowserRouter } from 'react-router-dom';
-import { comicsMiles } from '../../utils/testData';
+import { comicsMiles } from '../../../__mocks__/testData';
 import CharacterComic from './CharacterComic';
 
 test('testing character comic', () => {

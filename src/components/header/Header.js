@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMarvelContext } from '../../context/marvelContext';
-import logo from '../../assets/images/logo.png';
+import logo from '../../../public/assets/images/logo.png';
 import './header.css';
 
 const Header = () => {

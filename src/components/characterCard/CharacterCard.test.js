@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { MarvelContextProvider } from '../../context/marvelContext';
 import CharacterCard from './CharacterCard';
 import { BrowserRouter } from 'react-router-dom';
-import { milesMorales } from '../../utils/testData';
+import { milesMorales } from '../../../__mocks__/testData';
 
 test('testing character card', () => {
     const { container } = render(

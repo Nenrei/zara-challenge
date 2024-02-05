@@ -5,7 +5,7 @@ import { MarvelContextProvider } from '../../context/marvelContext';
 
 import { getMarvelCharacter, getMarvelCharacterComics } from '../../services/marvelServices';
 import CharacterDetailView from './CharacterDetailView';
-import { comicsMiles, milesMorales } from '../../utils/testData';
+import { comicsMiles, milesMorales } from '../../../__mocks__/testData';
 
 jest.mock('../../services/marvelServices');
 

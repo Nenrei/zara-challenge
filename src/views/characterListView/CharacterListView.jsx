@@ -4,8 +4,8 @@ import { getMarvelCharacters } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import PropTypes from 'prop-types';
-import './CharacterListView.css';
 import Error from '../../components/error/Error';
+import './CharacterListView.css';
 
 const CharacterListView = ({ renderFavoriteList }) => {
     const {

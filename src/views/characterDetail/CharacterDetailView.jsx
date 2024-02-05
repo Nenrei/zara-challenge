@@ -7,14 +7,13 @@ import CharacterComic from '../../components/characterComic/CharacterComic';
 import Error from '../../components/error/Error';
 
 const CharacterDetailView = () => {
-    useEffect(() => {}, []);
-
     let { characterId } = useParams();
 
     const [characterData, setCharacterData] = useState(null);
     const [characterComics, setCharacterComics] = useState([]);
 
-    const [error, setError] = useState(null);
+    const [detailError, setDetailError] = useState(null);
+    const [comicsError, setComicsError] = useState(null);
 
     useEffect(() => {
         getCharacterData();
@@ -22,29 +21,32 @@ const CharacterDetailView = () => {
     }, []);
 
     const getCharacterData = () => {
-        setError(null);
+        setDetailError(null);
         getMarvelCharacter(characterId)
             .then((result) => {
                 setCharacterData(result[0]);
             })
             .catch(() => {
-                setError(CHAR_ERROR);
+                setDetailError({
+                    text: "Error loading character's detail.",
+                    function: getCharacterData,
+                });
             });
     };
 
     const getComicsData = () => {
-        setError(null);
+        setComicsError(null);
         getMarvelCharacterComics(characterId)
             .then((result) => {
                 setCharacterComics(result);
             })
             .catch(() => {
-                setError(COMIC_ERROR);
+                setComicsError({
+                    text: "Error loading character's comics.",
+                    function: getComicsData,
+                });
             });
     };
-
-    const CHAR_ERROR = { text: "Error loading character's detail.", function: getCharacterData };
-    const COMIC_ERROR = { text: "Error loading character's comics.", function: getComicsData };
 
     return (
         <section className="character-detail-view">
@@ -79,11 +81,11 @@ const CharacterDetailView = () => {
                 </div>
             </div>
 
-            {error && (
+            {detailError && (
                 <Error
-                    errorText={error.text}
+                    errorText={detailError.text}
                     onErrorButtonClick={() => {
-                        error.function();
+                        detailError.function();
                     }}
                 />
             )}
@@ -97,6 +99,15 @@ const CharacterDetailView = () => {
                     ))}
                 </div>
             </div>
+
+            {comicsError && (
+                <Error
+                    errorText={comicsError.text}
+                    onErrorButtonClick={() => {
+                        comicsError.function();
+                    }}
+                />
+            )}
         </section>
     );
 };
