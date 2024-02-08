@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './CharacterDetailView.css';
+import styles from './CharacterDetailView.modules.css';
 import { useParams } from 'react-router';
 import FavoriteButton from '../../components/favoriteButton/FavoriteButton';
 import { getMarvelCharacter, getMarvelCharacterComics } from '../../services/marvelServices';
@@ -49,10 +49,10 @@ const CharacterDetailView = () => {
     };
 
     return (
-        <section className="character-detail-view">
-            <div className="character-detail-view__header corner-triangle">
-                <div className="character-detail-view__character">
-                    <div className="character-detail-view__character__thumbnail">
+        <section className={styles['character-detail-view']}>
+            <div className={styles['character-detail-view__header corner-triangle']}>
+                <div className={styles['character-detail-view__character']}>
+                    <div className={styles['character-detail-view__character__thumbnail']}>
                         {characterData && (
                             <img
                                 src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
@@ -60,11 +60,21 @@ const CharacterDetailView = () => {
                             />
                         )}
                     </div>
-                    <div className="character-detail-view__character__resume">
+                    <div className={styles['character-detail-view__character__resume']}>
                         {characterData && (
                             <>
-                                <div className="character-detail-view__character__resume__name">
-                                    <div className="character-detail-view__character__resume__name__text">
+                                <div
+                                    className={
+                                        styles['character-detail-view__character__resume__name']
+                                    }
+                                >
+                                    <div
+                                        className={
+                                            styles[
+                                                'character-detail-view__character__resume__name__text'
+                                            ]
+                                        }
+                                    >
                                         {characterData.name}
                                     </div>
                                     <FavoriteButton
@@ -72,7 +82,13 @@ const CharacterDetailView = () => {
                                         boldIcon={false}
                                     />
                                 </div>
-                                <div className="character-detail-view__character__resume__description">
+                                <div
+                                    className={
+                                        styles[
+                                            'character-detail-view__character__resume__description'
+                                        ]
+                                    }
+                                >
                                     {characterData.description}
                                 </div>
                             </>
@@ -90,10 +106,10 @@ const CharacterDetailView = () => {
                 />
             )}
 
-            <div className="character-detail-view__comics">
-                <div className="character-detail-view__comics__title">Comics</div>
+            <div className={styles['character-detail-view__comics']}>
+                <div className={styles['character-detail-view__comics__title']}>Comics</div>
 
-                <div className="character-detail-view__comics__list">
+                <div className={styles['character-detail-view__comics__list']}>
                     {characterComics?.map((el) => (
                         <CharacterComic key={el.id} comicData={el} />
                     ))}

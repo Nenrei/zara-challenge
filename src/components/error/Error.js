@@ -1,14 +1,14 @@
 import React from 'react';
+import styles from './Error.modules.css';
 import PropTypes from 'prop-types';
-import './Error.css';
 
 const Error = ({ errorText, onErrorButtonClick }) => {
     return (
-        <div className="error">
+        <div className={styles.error}>
             {errorText}
-            <div className="error__button" onClick={onErrorButtonClick}>
+            <div className={styles.error__button} onClick={onErrorButtonClick}>
                 Try again
-            </div>{' '}
+            </div>
         </div>
     );
 };

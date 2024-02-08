@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import styles from './CharacterListView.modules.css';
 import { useMarvelContext } from '../../context/marvelContext';
 import { getMarvelCharacters } from '../../services/marvelServices';
 import CharacterCard from '../../components/characterCard/CharacterCard';
 import SearchBar from '../../components/searchBar/SearchBar';
 import PropTypes from 'prop-types';
 import Error from '../../components/error/Error';
-import './CharacterListView.css';
 
 const CharacterListView = ({ renderFavoriteList }) => {
     const {
@@ -60,7 +60,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
     };
 
     return (
-        <section className="character-list-view">
+        <section className={styles['character-list-view']}>
             <SearchBar
                 searchResultCount={characters?.length || 0}
                 onEnterPress={(value) => {
@@ -69,7 +69,7 @@ const CharacterListView = ({ renderFavoriteList }) => {
                 isLoading={loading}
             />
 
-            <div className="character-list-view__list">
+            <div className={styles['character-list-view__list']}>
                 {characters?.map((el) => (
                     <CharacterCard key={el.id} characterData={el} />
                 ))}

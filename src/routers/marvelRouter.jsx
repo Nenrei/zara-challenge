@@ -1,16 +1,14 @@
 import React from 'react';
+import styles from './marvelRouter.modules.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-
 import Header from '../components/header/Header';
 import CharacterListView from '../views/characterListView/CharacterListView';
 import CharacterDetailView from '../views/characterDetail/CharacterDetailView';
 
-import './marvelRouter.css';
-
 const MarvelRouter = () => {
     return (
         <BrowserRouter basename={'/'}>
-            <div className="grid-container">
+            <div className={styles['grid-container']}>
                 <Header />
                 <main className="main">
                     <Routes>

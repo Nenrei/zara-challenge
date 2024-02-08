@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMarvelContext } from '../../context/marvelContext';
 import logo from '../../../public/assets/images/logo.png';
-import './header.css';
+import styles from './header.modules.css';
 
 const Header = () => {
     const {
@@ -12,13 +12,13 @@ const Header = () => {
     } = useMarvelContext();
 
     return (
-        <header className="header">
-            <Link to={'/'} className="header__logo">
+        <header className={styles.header}>
+            <Link to={'/'} className={styles.header__logo}>
                 <img src={logo} alt="logo" />
             </Link>
-            <Link to={'/favorites'} className="header__fav-count">
-                <div className="icon icon--heart header__fav-count__icon"></div>
-                <div className="header__fav-count__text">{favoriteCharacters.length}</div>
+            <Link to={'/favorites'} className={styles['header__fav-count']}>
+                <div className={`icon icon--heart ${styles['header__fav-count__icon']}`}></div>
+                <div className={styles['header__fav-count__text']}>{favoriteCharacters.length}</div>
             </Link>
         </header>
     );

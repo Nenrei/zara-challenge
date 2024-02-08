@@ -1,5 +1,5 @@
 import React from 'react';
-import './characterComic.css';
+import styles from './characterComic.modules.css';
 import PropTypes from 'prop-types';
 
 const CharacterComic = ({ comicData }) => {
@@ -13,17 +13,17 @@ const CharacterComic = ({ comicData }) => {
     };
 
     return (
-        <div className="comic">
-            <div className="comic__thumbnail">
+        <div className={styles.comic}>
+            <div className={styles.comic__thumbnail}>
                 <img
                     src={`${comicData.thumbnail.path}.${comicData.thumbnail.extension}`}
                     alt={comicData.title}
                 />
             </div>
-            <div className="comic__title" title={comicData.title}>
+            <div className={styles.comic__title} title={comicData.title}>
                 {comicData.title}
             </div>
-            <div className="comic__date">{getDate()}</div>
+            <div className={styles.comic__date}>{getDate()}</div>
         </div>
     );
 };
