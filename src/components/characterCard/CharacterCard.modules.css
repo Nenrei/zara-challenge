@@ -50,18 +50,16 @@
     transition: background 0.3s;
 }
 
-.character-card .favorite-button {
-    min-width: 12px;
+.character-card__name__icon {
+    width: 12px;
     height: 12px;
-
-    transition-duration: 0.3s;
 }
 
 @media (min-width: 540px) {
     .character-card:hover .character-card__name {
         background-position: 0 0;
     }
-    .character-card:hover .favorite-button.icon--heart {
+    .character-card:hover .character-card__fav-icon {
         background-color: var(--color-clear);
     }
 }

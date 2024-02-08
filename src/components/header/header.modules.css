@@ -30,6 +30,11 @@
     color: var(--color-clear);
 }
 
+.header__fav-count__icon {
+    width: 20px;
+    height: 20px;
+}
+
 @media (min-width: 540px) {
     .header {
         padding: 16px 48px;

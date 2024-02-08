@@ -5,6 +5,7 @@ import { MarvelContextProvider } from '../../context/marvelContext';
 import CharacterCard from './CharacterCard';
 import { BrowserRouter } from 'react-router-dom';
 import { milesMorales } from '../../../__mocks__/testData';
+import iconStyles from './../icon/icons.modules.css';
 
 test('testing character card', () => {
     const { container } = render(
@@ -17,8 +18,7 @@ test('testing character card', () => {
     const name = screen.getByText(milesMorales.name);
     expect(name).toBeInTheDocument();
 
-    const nameContainer = container.querySelector('.favorite-button');
-    expect(nameContainer).not.toHaveClass('icon--heart');
+    expect(container.querySelector(`.${iconStyles['icon--heart']}`)).not.toBeInTheDocument();
 });
 
 test('testing character card marked as favorite', () => {
@@ -40,6 +40,5 @@ test('testing character card marked as favorite', () => {
     const name = screen.getByText(milesMorales.name);
     expect(name).toBeInTheDocument();
 
-    const nameContainer = container.querySelector('.favorite-button');
-    expect(nameContainer).toHaveClass('icon--heart');
+    expect(container.querySelector(`.${iconStyles['icon--heart']}`)).toBeInTheDocument();
 });

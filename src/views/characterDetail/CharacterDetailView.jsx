@@ -50,7 +50,7 @@ const CharacterDetailView = () => {
 
     return (
         <section className={styles['character-detail-view']}>
-            <div className={styles['character-detail-view__header corner-triangle']}>
+            <div className={`${styles['character-detail-view__header']} corner-triangle`}>
                 <div className={styles['character-detail-view__character']}>
                     <div className={styles['character-detail-view__character__thumbnail']}>
                         {characterData && (
@@ -77,10 +77,18 @@ const CharacterDetailView = () => {
                                     >
                                         {characterData.name}
                                     </div>
-                                    <FavoriteButton
-                                        characterData={characterData}
-                                        boldIcon={false}
-                                    />
+                                    <div
+                                        className={
+                                            styles[
+                                                'character-detail-view__character__resume__name__icon'
+                                            ]
+                                        }
+                                    >
+                                        <FavoriteButton
+                                            characterData={characterData}
+                                            boldIcon={false}
+                                        />
+                                    </div>
                                 </div>
                                 <div
                                     className={

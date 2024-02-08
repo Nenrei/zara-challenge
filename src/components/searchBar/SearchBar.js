@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.modules.css';
 import PropTypes from 'prop-types';
+import Icon, { ICON_TYPES } from '../icon/Icon';
 
 const SearchBar = ({ searchResultCount, onEnterPress, isLoading }) => {
     const [inputValue, setInputValue] = useState('');
@@ -8,7 +9,9 @@ const SearchBar = ({ searchResultCount, onEnterPress, isLoading }) => {
     return (
         <div className={styles['search-bar']}>
             <div className={styles['search-bar__input-container']}>
-                <div className="icon icon--search"></div>
+                <div className={styles['search-bar__input-icon']}>
+                    <Icon type={ICON_TYPES.SEARCH} />
+                </div>
                 <input
                     type="text"
                     className={styles['search-bar__input-container__input']}

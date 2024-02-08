@@ -2,24 +2,26 @@
     mask-size: contain !important;
     mask-repeat: no-repeat !important;
     mask-position: 50% 50% !important;
+    width: 100%;
+    height: 100%;
 }
 
 .icon--heart {
-    mask-image: url('../../public/assets/icons/heart.svg');
+    mask-image: url('../../../public/assets/icons/heart.svg');
     background-color: var(--marver-red);
 }
 
 .icon--heart-line {
-    mask-image: url('../../public/assets/icons/heart-line.svg');
+    mask-image: url('../../../public/assets/icons/heart-line.svg');
     background-color: var(--color-clear);
 }
 
 .icon--heart-line-bold {
-    mask-image: url('../../public/assets/icons/heart-line-bold.svg');
+    mask-image: url('../../../public/assets/icons/heart-line-bold.svg');
     background-color: var(--color-clear);
 }
 
 .icon--search {
-    mask-image: url('../../public/assets/icons/search.svg');
+    mask-image: url('../../../public/assets/icons/search.svg');
     background-color: var(--color-dark);
 }

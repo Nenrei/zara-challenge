@@ -48,11 +48,11 @@
     text-transform: uppercase;
 }
 
-.character-detail-view__character__resume .favorite-button {
-    margin-top: 3px;
+.character-detail-view__character__resume__name__icon {
     width: 32px;
     height: 32px;
 }
+
 .character-detail-view__comics {
     width: 100vw;
     margin: 0 auto;
@@ -130,5 +130,8 @@
 
     .character-detail-view__comics__title {
         padding-left: 0;
+    }
+    .character-detail-view__comics__list {
+        padding: 0 0 20px;
     }
 }

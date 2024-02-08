@@ -18,8 +18,14 @@ const CharacterCard = ({ characterData }) => {
             </Link>
             <div className={styles['character-card__splitter']}></div>
             <div className={`${styles['character-card__name']} corner-triangle`}>
-                <div className="character-card__name__text">{characterData.name}</div>
-                <FavoriteButton characterData={characterData} boldIcon={true} />
+                <div className={styles['character-card__name__text']}>{characterData.name}</div>
+                <div className={styles['character-card__name__icon']}>
+                    <FavoriteButton
+                        characterData={characterData}
+                        boldIcon={true}
+                        className={styles['character-card__fav-icon']}
+                    />
+                </div>
             </div>
         </div>
     );

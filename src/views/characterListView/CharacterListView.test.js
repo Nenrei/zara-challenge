@@ -13,7 +13,7 @@ jest.mock('../../services/marvelServices');
 describe('Characters test suite', () => {
     test('Renders the component with no characters', async () => {
         getMarvelCharacters.mockReturnValue(Promise.resolve([]));
-        render(
+        const { container } = render(
             <MarvelContextProvider>
                 <BrowserRouter>
                     <CharacterListView renderFavoriteList={false} />
@@ -23,6 +23,9 @@ describe('Characters test suite', () => {
 
         const results = await screen.findByText('0 results');
         expect(results).toBeInTheDocument();
+
+        const characterItems = container.querySelectorAll('.character-card');
+        expect(characterItems).toHaveLength(0);
     });
 
     test('Renders the component with characters', async () => {
