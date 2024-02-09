@@ -12,7 +12,11 @@ const FavoriteButton = ({ characterData, boldIcon, className }) => {
             return ICON_TYPES.HEART;
         }
 
-        return boldIcon ? ICON_TYPES.HEART_LINE_BOLD : ICON_TYPES.HEART_LINE;
+        if (boldIcon) {
+            return ICON_TYPES.HEART_LINE_BOLD;
+        }
+
+        return ICON_TYPES.HEART_LINE;
     };
 
     return (
